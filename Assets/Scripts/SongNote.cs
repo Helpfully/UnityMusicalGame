@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SongNote
 {
-    public Note note;
+    public MusicalSound note;
     public float volume;
     public float time;
 }

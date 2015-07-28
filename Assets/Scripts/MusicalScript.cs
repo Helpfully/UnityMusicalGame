@@ -18,4 +18,5 @@ public class MusicalScript : MonoBehaviour {
                SI1 = 11, SI2 = 23, SI3 = 35, SI4 = 47;
     #endregion
 
+    protected SoundPoolController SoundPool { get { return SoundPoolController.sInstance; } }
 }

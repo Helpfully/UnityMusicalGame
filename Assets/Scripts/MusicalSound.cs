@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(AudioSource))]
-public class Note : MusicalScript
+public class MusicalSound : MusicalScript
 {
     AudioSource note
     {

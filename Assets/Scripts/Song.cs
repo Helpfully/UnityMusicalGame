@@ -3,14 +3,14 @@ using System.Collections;
 
 public class Song : MusicalScript
 {
-    public Note[] Notes;
+    public MusicalSound[] Notes;
 
     // Use this for initialization
     void Start()
     {
-        MarioNotes = new Note[] 
+        MarioNotes = new MusicalSound[] 
         {
-            new Note() {}
+            
         };
     }
 
@@ -20,5 +20,5 @@ public class Song : MusicalScript
 
     }
 
-    private Note[] MarioNotes;
+    private MusicalSound[] MarioNotes;
 }
