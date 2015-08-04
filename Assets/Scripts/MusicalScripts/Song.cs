@@ -3,15 +3,12 @@ using System.Collections;
 
 public class Song : MusicalScript
 {
-    public MusicalSound[] Notes;
+    public Chord[] chords;
 
     // Use this for initialization
     void Start()
     {
-        MarioNotes = new MusicalSound[] 
-        {
-            
-        };
+
     }
 
     // Update is called once per frame
@@ -19,6 +16,4 @@ public class Song : MusicalScript
     {
 
     }
-
-    private MusicalSound[] MarioNotes;
 }
