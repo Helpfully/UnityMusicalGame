@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SoundPoolController : MusicalScript
+public class SoundPoolController : MonoBehaviour
 {
     const int NUMBER_OF_NOTES = 49;
 
@@ -102,7 +102,7 @@ public class SoundPoolController : MusicalScript
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PlayNote(DO1, 1f, 0.25f, true);
+            PlayNote((int)Tones.DO1, 1f, 0.25f, true);
         }
     }
 

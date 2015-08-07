@@ -1,15 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Note : MonoBehaviour {
+public class Note : MusicalScript
+{
+    public Tones Tone;
+    public NoteLength NoteLength = NoteLength.Quarter;
+    private float volume;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public float Volume
+    {
+        get { return volume; }
+        set { volume = value; }
+    }
+
+    public Chord ParentChord;
+
+    public float Time
+    {
+        get
+        {
+            return (int)NoteLength / 16;
+        }
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void Play()
+    {
+        SoundPool.PlayNote((int)Tone, Volume, Time, true);
+    }
 }

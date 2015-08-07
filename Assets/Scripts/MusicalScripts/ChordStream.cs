@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Chord : MusicalScript
+public class ChordStream : MusicalScript
 {
-    public Note[] notes;
-    public bool isSilence = false;
+    public Chord[] chords;
+    public Song ParentSong;
     private float volume = 1.0f;
     public float Volume
     {
         get
         {
-            if (ParentChordStream != null)
+            if (ParentSong != null)
             {
-                return ParentChordStream.Volume;
+                return ParentSong.Volume;
             }
             else
             {
@@ -20,9 +20,6 @@ public class Chord : MusicalScript
             }
         }
     }
-
-    public ChordStream ParentChordStream;
-    public NoteLength Length;
     // Use this for initialization
     void Start()
     {
@@ -33,5 +30,10 @@ public class Chord : MusicalScript
     void Update()
     {
 
+    }
+
+    public void Play()
+    {
+        
     }
 }

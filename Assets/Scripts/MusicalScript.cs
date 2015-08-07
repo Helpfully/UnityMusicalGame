@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MusicalScript : MonoBehaviour {
+public class MusicalScript {
 
     #region Note Constants
-    protected const int DO1 = 0, DO2 = 12, DO3 = 24, DO4 = 36, DO5 = 48,
+    protected const int Silence = -1, DO1 = 0, DO2 = 12, DO3 = 24, DO4 = 36, DO5 = 48,
               DOS1 = 1, DOS2 = 13, DOS3 = 25, DOS4 = 37,
                RE1 = 2, RE2 = 14, RE3 = 26, RE4 = 38,
               RES1 = 3, RES2 = 15, RES3 = 27, RES4 = 39,
@@ -19,4 +19,6 @@ public class MusicalScript : MonoBehaviour {
     #endregion
 
     protected SoundPoolController SoundPool { get { return SoundPoolController.sInstance; } }
+
+    
 }

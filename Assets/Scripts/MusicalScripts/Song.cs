@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Song : MusicalScript
 {
-    public Chord[] chords;
+    public ChordStream[] chords;
+    public float Volume = 1.0f;
 
     // Use this for initialization
     void Start()
