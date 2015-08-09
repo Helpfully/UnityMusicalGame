@@ -23,6 +23,14 @@ public class Note : MusicalScript
         }
     }
 
+    public int NoteCode
+    {
+        get
+        {
+            return (int)Tone;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {

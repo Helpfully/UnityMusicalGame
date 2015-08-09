@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SoundPoolController : MonoBehaviour
 {
@@ -122,5 +123,32 @@ public class SoundPoolController : MonoBehaviour
     {
         MusicalSound note = notesArray[pNote % NUMBER_OF_NOTES];
         note.PlayNote(pVolume, time, useTime);
+    }
+
+    public List<Song> SongsPlaying = new List<Song>();
+    public List<ChordStream> StreamsPlaying = new List<ChordStream>();
+
+    public void PlaySong(Song song)
+    {
+        
+    }
+
+    public void PlayStream(ChordStream stream)
+    {
+
+    }
+
+    public void PlayNextChord(ChordStream stream, int index)
+    {
+        Chord chord = stream.chords[index];
+
+        if (!chord.isSilence)
+	    {
+	    	foreach (var item in chord.notes)
+            {
+                PlayNote(item.NoteCode, item.Volume, item.Time, true);
+            } 
+	    }
+
     }
 }
