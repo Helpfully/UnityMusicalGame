@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Chord : MusicalScript
 {
-    public Note[] notes;
+    public List<Note> notes;
     public bool isSilence = false;
     private float volume = 1.0f;
     public float Volume
@@ -23,15 +24,17 @@ public class Chord : MusicalScript
 
     public ChordStream ParentChordStream;
     public NoteLength Length;
-    // Use this for initialization
-    void Start()
-    {
 
+    public float Time
+    {
+        get
+        {
+            return (int)Length / 16;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public Chord()
     {
-
+        notes = new List<Note>();
     }
 }

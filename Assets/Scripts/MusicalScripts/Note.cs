@@ -9,8 +9,18 @@ public class Note : MusicalScript
 
     public float Volume
     {
-        get { return volume; }
-        set { volume = value; }
+        get 
+        {
+            if (ParentChord != null)
+            {
+                return ParentChord.Volume;
+            }
+            return volume; 
+        }
+        set 
+        {
+            volume = value; 
+        }
     }
 
     public Chord ParentChord;

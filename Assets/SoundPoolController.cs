@@ -6,8 +6,6 @@ public class SoundPoolController : MonoBehaviour
 {
     const int NUMBER_OF_NOTES = 49;
 
-    
-
     private bool isNotesSetUp = false;
     MusicalSound[] notesArray;
     private static SoundPoolController sPrivateInstance;
@@ -95,7 +93,14 @@ public class SoundPoolController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        var song = new Song();
+        song.ChordStreams.Add(new ChordStream()
+            {
+                chords = new List<Chord>()
+                {
+                    
+                }
+            });
     }
 
     // Update is called once per frame
@@ -104,6 +109,29 @@ public class SoundPoolController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayNote((int)Tones.DO1, 1f, 0.25f, true);
+        }
+        HandleSongs();
+    }
+
+    private void HandleSongs()
+    {
+        for (int i = 0; i < StreamsPlaying.Count; i++)
+        {
+            var stream = StreamsPlaying[i];
+            stream.StreamTimer += Time.deltaTime;
+            if (stream.CheckIfNextChordReady())
+            {
+                PlayNextChord(stream);
+            }
+        }
+
+        for (int i = StreamsPlaying.Count - 1; i >= 0; i--)
+        {
+            var stream = StreamsPlaying[i];
+            if (stream.IsEndOfSong)
+            {
+                StreamsPlaying.Remove(stream);
+            }
         }
     }
 
@@ -127,10 +155,15 @@ public class SoundPoolController : MonoBehaviour
 
     public List<Song> SongsPlaying = new List<Song>();
     public List<ChordStream> StreamsPlaying = new List<ChordStream>();
+    public List<float> StreamTimers = new List<float>();
+
 
     public void PlaySong(Song song)
     {
-        
+        foreach (var item in song.ChordStreams)
+        {
+            StreamsPlaying.Add(item);
+        }
     }
 
     public void PlayStream(ChordStream stream)
@@ -138,17 +171,16 @@ public class SoundPoolController : MonoBehaviour
 
     }
 
-    public void PlayNextChord(ChordStream stream, int index)
+    public void PlayNextChord(ChordStream stream)
     {
-        Chord chord = stream.chords[index];
+        Chord currentChord = stream.CurrentChord;
 
-        if (!chord.isSilence)
+        if (!currentChord.isSilence)
 	    {
-	    	foreach (var item in chord.notes)
+	    	foreach (var item in currentChord.notes)
             {
                 PlayNote(item.NoteCode, item.Volume, item.Time, true);
             } 
 	    }
-
     }
 }

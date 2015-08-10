@@ -1,20 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Song : MusicalScript
 {
-    public ChordStream[] chords;
+    public List<ChordStream> ChordStreams;
     public float Volume = 1.0f;
 
-    // Use this for initialization
-    void Start()
+    public Song()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        ChordStreams = new List<ChordStream>();
     }
 }

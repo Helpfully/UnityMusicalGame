@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ChordStream : MusicalScript
 {
-    public Chord[] chords;
+    public List<Chord> chords;
     public Song ParentSong;
     private float volume = 1.0f;
     public float Volume
@@ -20,20 +21,46 @@ public class ChordStream : MusicalScript
             }
         }
     }
+
+    public int StreamIndex = 0;
+    public float StreamTimer = 0.0f;
+
+    public bool IsEndOfSong = false;
     // Use this for initialization
-    void Start()
-    {
 
+    public Chord CurrentChord
+    {
+        get
+        {
+            return chords[StreamIndex];
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public ChordStream()
     {
-
+        chords = new List<Chord>();
     }
 
-    public void Play()
+    public bool CheckIfNextChordReady()
     {
-        
+        if (StreamIndex >= chords.Count)
+        {
+            StreamIndex = 0;
+            IsEndOfSong = true;
+            StreamTimer = 0.0f;
+            return false;
+        }
+        var currentChord = chords[StreamIndex];
+
+        var currentChordTime = currentChord.Time;
+
+        if (StreamTimer >= currentChordTime)
+        {
+            StreamTimer -= currentChordTime;
+            StreamIndex++;
+            return true;
+        }
+
+        return false;
     }
 }
