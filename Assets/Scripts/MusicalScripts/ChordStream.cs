@@ -27,6 +27,7 @@ public class ChordStream : MusicalScript
 
     public bool IsEndOfSong = false;
     // Use this for initialization
+    public bool InitialPlay = true;
 
     public Chord CurrentChord
     {
@@ -50,6 +51,13 @@ public class ChordStream : MusicalScript
             StreamTimer = 0.0f;
             return false;
         }
+
+        if (InitialPlay)
+        {
+            InitialPlay = false;
+            return true;
+        }
+
         var currentChord = chords[StreamIndex];
 
         var currentChordTime = currentChord.Time;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Chord : MusicalScript
 {
-    public List<Note> notes;
+    public List<Note> Notes;
     public bool isSilence = false;
     private float volume = 1.0f;
     public float Volume
@@ -29,12 +29,35 @@ public class Chord : MusicalScript
     {
         get
         {
-            return (int)Length / 16;
+            return (int)Length / 16f;
         }
     }
 
     public Chord()
     {
-        notes = new List<Note>();
+        Notes = new List<Note>();
+    }
+
+    public Chord(ChordStream parentStream, NoteLength length, params int[] notes)
+    {
+        Notes = new List<Note>();
+
+        foreach (var item in notes)
+        {
+            if (item == -1)
+            {
+                isSilence = true;
+                break;
+            }
+            var note = new Note();
+            note.NoteLength = length;
+            note.ParentChord = this;
+            note.Tone = (Tones)item;
+
+            Notes.Add(note);
+        }
+        Length = length;
+        ParentChordStream = parentStream;
+        parentStream.chords.Add(this);
     }
 }

@@ -93,14 +93,8 @@ public class SoundPoolController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        var song = new Song();
-        song.ChordStreams.Add(new ChordStream()
-            {
-                chords = new List<Chord>()
-                {
-                    
-                }
-            });
+        var mario = MusicalScript.GetMarioTheme();
+        PlaySong(mario);
     }
 
     // Update is called once per frame
@@ -117,6 +111,7 @@ public class SoundPoolController : MonoBehaviour
     {
         for (int i = 0; i < StreamsPlaying.Count; i++)
         {
+            Debug.Log(StreamsPlaying);
             var stream = StreamsPlaying[i];
             stream.StreamTimer += Time.deltaTime;
             if (stream.CheckIfNextChordReady())
@@ -177,7 +172,7 @@ public class SoundPoolController : MonoBehaviour
 
         if (!currentChord.isSilence)
 	    {
-	    	foreach (var item in currentChord.notes)
+	    	foreach (var item in currentChord.Notes)
             {
                 PlayNote(item.NoteCode, item.Volume, item.Time, true);
             } 

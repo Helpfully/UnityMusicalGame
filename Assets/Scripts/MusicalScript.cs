@@ -21,4 +21,34 @@ public class MusicalScript {
     protected SoundPoolController SoundPool { get { return SoundPoolController.sInstance; } }
 
     
+    public static Song GetMarioTheme()
+    {
+        var song = new Song();
+
+        var stream1 = new ChordStream();
+
+        #region Right Hand
+
+        new Chord(stream1, NoteLength.Sixteenth, MI3);
+        new Chord(stream1, NoteLength.Eighth, MI3);
+        new Chord(stream1, NoteLength.Sixteenth, MI3);
+
+        #endregion
+
+        stream1.ParentSong = song;
+        song.ChordStreams.Add(stream1);
+
+        //var stream2 = new ChordStream();
+        //
+        //#region Left Hand
+        //
+        //
+        //
+        //#endregion
+        //
+        //stream2.ParentSong = song;
+        //song.ChordStreams.Add(stream2);
+
+        return song;
+    }
 }
