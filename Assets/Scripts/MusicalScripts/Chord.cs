@@ -23,12 +23,17 @@ public class Chord : MusicalScript
     }
 
     public ChordStream ParentChordStream;
+    private float length = 1.0f;
     public NoteLength Length;
 
     public float Time
     {
         get
         {
+            if (Length == NoteLength.Specific)
+            {
+                return length;
+            }
             return (int)Length / 16f;
         }
     }
@@ -50,13 +55,59 @@ public class Chord : MusicalScript
                 break;
             }
             var note = new Note();
-            note.NoteLength = length;
+            note.Length = length;
             note.ParentChord = this;
             note.Tone = (Tones)item;
 
             Notes.Add(note);
         }
         Length = length;
+        ParentChordStream = parentStream;
+        parentStream.chords.Add(this);
+    }
+
+    public Chord(ChordStream parentStream, int length, params int[] notes)
+    {
+        Notes = new List<Note>();
+
+        foreach (var item in notes)
+        {
+            if (item == -1)
+            {
+                isSilence = true;
+                break;
+            }
+            var note = new Note();
+            note.Length = (NoteLength)length;
+            note.ParentChord = this;
+            note.Tone = (Tones)item;
+
+            Notes.Add(note);
+        }
+        Length = (NoteLength)length;
+        ParentChordStream = parentStream;
+        parentStream.chords.Add(this);
+    }
+
+    public Chord(ChordStream parentStream, float specificLength, params int[] notes)
+    {
+        Notes = new List<Note>();
+
+        foreach (var item in notes)
+        {
+            if (item == -1)
+            {
+                isSilence = true;
+                break;
+            }
+            var note = new Note();
+            note.Length = NoteLength.Specific;
+            note.ParentChord = this;
+            note.Tone = (Tones)item;
+
+            Notes.Add(note);
+        }
+        length = specificLength;
         ParentChordStream = parentStream;
         parentStream.chords.Add(this);
     }

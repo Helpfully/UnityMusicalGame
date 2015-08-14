@@ -16,6 +16,8 @@ public class MusicalScript {
                LA1 = 9, LA2 = 21, LA3 = 33, LA4 = 45,
               LAS1 = 10, LAS2 = 22, LAS3 = 34, LAS4 = 46,
                SI1 = 11, SI2 = 23, SI3 = 35, SI4 = 47;
+
+    protected const int SPS = -1, N64 = 1, N32 = 2, N16 = 4, N8 = 8, N4 = 16, N2 = 32, N1 = 64;
     #endregion
 
     protected SoundPoolController SoundPool { get { return SoundPoolController.sInstance; } }
@@ -29,9 +31,7 @@ public class MusicalScript {
 
         #region Right Hand
 
-        new Chord(stream1, NoteLength.Sixteenth, MI3);
-        new Chord(stream1, NoteLength.Eighth, MI3);
-        new Chord(stream1, NoteLength.Sixteenth, MI3);
+        new Chord(stream1, N16, MI3); new Chord(stream1, N8, MI3); new Chord(stream1, N16, MI3); new Chord(stream1, N16, Silence);
 
         #endregion
 

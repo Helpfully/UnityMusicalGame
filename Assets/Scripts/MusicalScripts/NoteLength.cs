@@ -6,5 +6,6 @@
     Eighth = 8,
     Sixteenth = 4,
     Thirtysecond = 2,
-    Sixtyfourth = 1
+    Sixtyfourth = 1,
+    Specific = -1
 }

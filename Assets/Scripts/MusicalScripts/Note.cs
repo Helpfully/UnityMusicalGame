@@ -4,7 +4,7 @@ using System.Collections;
 public class Note : MusicalScript
 {
     public Tones Tone;
-    public NoteLength NoteLength = NoteLength.Quarter;
+    public NoteLength Length = NoteLength.Quarter;
     private float volume;
 
     public float Volume
@@ -25,11 +25,16 @@ public class Note : MusicalScript
 
     public Chord ParentChord;
 
+    private float length = 1.0f;
     public float Time
     {
         get
         {
-            return (int)NoteLength / 16;
+            if (Length == NoteLength.Specific)
+            {
+                return length;
+            }
+            return (int)Length / 16;
         }
     }
 
