@@ -32,11 +32,14 @@ public class Chord : MusicalScript
         {
             if (Length == NoteLength.Specific)
             {
-                return length;
+                return length * (isExtended ? 1.5f : 1.0f);
             }
-            return (int)Length / 16f;
+            return ((int)Length / 16f) * (isExtended ? 1.5f : 1.0f);
         }
     }
+
+    public bool isStaccato = false;
+    public bool isExtended = false;
 
     public Chord()
     {
@@ -45,28 +48,15 @@ public class Chord : MusicalScript
 
     public Chord(ChordStream parentStream, NoteLength length, params int[] notes)
     {
-        Notes = new List<Note>();
-
-        foreach (var item in notes)
-        {
-            if (item == -1)
-            {
-                isSilence = true;
-                break;
-            }
-            var note = new Note();
-            note.Length = length;
-            note.ParentChord = this;
-            note.Tone = (Tones)item;
-
-            Notes.Add(note);
-        }
-        Length = length;
-        ParentChordStream = parentStream;
-        parentStream.chords.Add(this);
+        CreateChord(parentStream, (int)length, notes);
     }
 
     public Chord(ChordStream parentStream, int length, params int[] notes)
+    {
+        CreateChord(parentStream, length, notes);
+    }
+
+    private void CreateChord(ChordStream parentStream, int length, int[] notes)
     {
         Notes = new List<Note>();
 
@@ -110,5 +100,17 @@ public class Chord : MusicalScript
         length = specificLength;
         ParentChordStream = parentStream;
         parentStream.chords.Add(this);
+    }
+
+    public Chord SetStaccato(bool staccato)
+    {
+        isStaccato = staccato;
+        return this;
+    }
+
+    public Chord SetExtended(bool extended)
+    {
+        isExtended = extended;
+        return this;
     }
 }

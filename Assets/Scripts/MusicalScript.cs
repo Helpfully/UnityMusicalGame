@@ -31,11 +31,33 @@ public class MusicalScript {
 
         #region Right Hand
 
-        new Chord(stream1, N16, MI3); new Chord(stream1, N8, MI3); new Chord(stream1, N16, MI3); new Chord(stream1, N16, Silence);
+        #region Section 1
+        new Chord(stream1, N16, MI3); 
+        new Chord(stream1, N8, MI3); 
+        new Chord(stream1, N16, MI3); 
+        new Chord(stream1, N16, Silence);
+        new Chord(stream1, N16, DO3);
+        new Chord(stream1, N8, MI3);
+        new Chord(stream1, N4, SO3).SetStaccato(true);
+        new Chord(stream1, N4, SO2).SetStaccato(true);
+        #endregion
+
+        #region Section 2
+        new Chord(stream1, N8, DO3);
+        new Chord(stream1, N16, Silence);
+        new Chord(stream1, N16, SO2);
+        new Chord(stream1, N8, Silence);
+        new Chord(stream1, N8, MI2);
+        new Chord(stream1, N16, Silence);
+        new Chord(stream1, N16, SI2);
+        new Chord(stream1, N16, Silence);
+    
+        #endregion
 
         #endregion
 
         stream1.ParentSong = song;
+        song.PlaySpeed = 0.5f;
         song.ChordStreams.Add(stream1);
 
         //var stream2 = new ChordStream();

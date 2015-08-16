@@ -22,6 +22,27 @@ public class ChordStream : MusicalScript
         }
     }
 
+    private float playSpeed = 1.0f;
+
+    public float PlaySpeedMultiplier
+    {
+        get
+        {
+            if (ParentSong != null)
+            {
+                return ParentSong.PlaySpeedMultiplier;
+            }
+            else
+            {
+                if (playSpeed < 0.01f)
+                {
+                    return 1.0f;
+                }
+                return 1.0f / playSpeed;
+            }
+        }
+    }
+
     public int StreamIndex = 0;
     public float StreamTimer = 0.0f;
 
@@ -44,7 +65,7 @@ public class ChordStream : MusicalScript
 
     public bool CheckIfNextChordReady()
     {
-        if (StreamIndex >= chords.Count)
+        if (StreamIndex >= chords.Count - 1)
         {
             StreamIndex = 0;
             IsEndOfSong = true;
@@ -55,6 +76,7 @@ public class ChordStream : MusicalScript
         if (InitialPlay)
         {
             InitialPlay = false;
+            StreamTimer = 0.0f;
             return true;
         }
 
@@ -62,9 +84,11 @@ public class ChordStream : MusicalScript
 
         var currentChordTime = currentChord.Time;
 
-        if (StreamTimer >= currentChordTime)
+        if (StreamTimer >= currentChordTime / PlaySpeedMultiplier)
         {
-            StreamTimer -= currentChordTime;
+            //Debug.Log(StreamTimer);
+            StreamTimer -= currentChordTime / PlaySpeedMultiplier;
+            //Debug.LogWarning(StreamTimer);
             StreamIndex++;
             return true;
         }

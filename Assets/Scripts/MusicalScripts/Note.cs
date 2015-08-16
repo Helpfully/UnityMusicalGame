@@ -34,7 +34,7 @@ public class Note : MusicalScript
             {
                 return length;
             }
-            return (int)Length / 16;
+            return (int)Length / 16.0f;
         }
     }
 

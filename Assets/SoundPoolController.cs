@@ -98,20 +98,28 @@ public class SoundPoolController : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    bool isHandleSongs = false;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PlayNote((int)Tones.DO1, 1f, 0.25f, true);
+            isHandleSongs = true;
+            //PlayNote((int)Tones.DO1, 1f, 0.25f, true);
         }
-        HandleSongs();
+
+        if (isHandleSongs)
+        {
+            HandleSongs();
+        } 
     }
 
     private void HandleSongs()
     {
         for (int i = 0; i < StreamsPlaying.Count; i++)
         {
-            Debug.Log(StreamsPlaying);
+            //Debug.Log(StreamsPlaying);
             var stream = StreamsPlaying[i];
             stream.StreamTimer += Time.deltaTime;
             if (stream.CheckIfNextChordReady())
@@ -144,6 +152,7 @@ public class SoundPoolController : MonoBehaviour
 
     public void PlayNote(int pNote, float pVolume, float time, bool useTime = false)
     {
+        Debug.Log(time);
         MusicalSound note = notesArray[pNote % NUMBER_OF_NOTES];
         note.PlayNote(pVolume, time, useTime);
     }
@@ -174,7 +183,7 @@ public class SoundPoolController : MonoBehaviour
 	    {
 	    	foreach (var item in currentChord.Notes)
             {
-                PlayNote(item.NoteCode, item.Volume, item.Time, true);
+                PlayNote(item.NoteCode, item.Volume, currentChord.isStaccato ? (1.0f / 16.0f) : item.Time / currentChord.ParentChordStream.PlaySpeedMultiplier, true);
             } 
 	    }
     }
