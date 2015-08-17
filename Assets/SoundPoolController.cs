@@ -152,7 +152,7 @@ public class SoundPoolController : MonoBehaviour
 
     public void PlayNote(int pNote, float pVolume, float time, bool useTime = false)
     {
-        Debug.Log(time);
+        //Debug.Log(time);
         MusicalSound note = notesArray[pNote % NUMBER_OF_NOTES];
         note.PlayNote(pVolume, time, useTime);
     }

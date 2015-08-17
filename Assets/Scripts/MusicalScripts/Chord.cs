@@ -92,11 +92,13 @@ public class Chord : MusicalScript
             }
             var note = new Note();
             note.Length = NoteLength.Specific;
+            note.length = specificLength;
             note.ParentChord = this;
             note.Tone = (Tones)item;
 
             Notes.Add(note);
         }
+        Length = NoteLength.Specific;
         length = specificLength;
         ParentChordStream = parentStream;
         parentStream.chords.Add(this);

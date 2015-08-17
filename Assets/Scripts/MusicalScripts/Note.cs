@@ -25,7 +25,7 @@ public class Note : MusicalScript
 
     public Chord ParentChord;
 
-    private float length = 1.0f;
+    public float length = 1.0f;
     public float Time
     {
         get
