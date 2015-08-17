@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.MusicalScripts.Songs;
 
 public class SoundPoolController : MonoBehaviour
 {
@@ -93,7 +94,7 @@ public class SoundPoolController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        var mario = MusicalScript.GetMarioTheme();
+        var mario = MarioTheme.GetMarioTheme();
         PlaySong(mario);
     }
 
