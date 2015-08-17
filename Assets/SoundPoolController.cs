@@ -92,9 +92,11 @@ public class SoundPoolController : MonoBehaviour
     }
 
     // Use this for initialization
+    public Song mario;
+    public float SongSpeed = 0.5f;
     void Start()
     {
-        var mario = MarioTheme.GetMarioTheme();
+        mario = MarioTheme.GetMarioTheme();
         PlaySong(mario);
     }
 
@@ -104,6 +106,8 @@ public class SoundPoolController : MonoBehaviour
 
     void Update()
     {
+        mario.PlaySpeed = SongSpeed;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isHandleSongs = true;

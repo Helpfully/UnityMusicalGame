@@ -27,7 +27,7 @@ namespace Assets.Scripts.MusicalScripts.Songs
         public static Song GetMarioTheme()
         {
             var song = new Song();
-            song.PlaySpeed = 0.5f;
+            song.PlaySpeed = 0.25f;
 
             var stream1 = new ChordStream();
 
@@ -55,6 +55,35 @@ namespace Assets.Scripts.MusicalScripts.Songs
             #region Page 2
 
             RightSection15(stream1);
+            RightSection14(stream1);
+            RightSection1(stream1);
+            RightSection2(stream1);
+            RightSection3(stream1);
+            RightSection2(stream1);
+            RightSection3(stream1);
+            RightSection22(stream1);
+            RightSection23(stream1);
+            RightSection22(stream1);
+            RightSection25(stream1);
+            RightSection22(stream1);
+            RightSection23(stream1);
+            RightSection22(stream1);
+            RightSection25(stream1);
+            RightSection14(stream1);
+            RightSection15(stream1);
+            RightSection14(stream1);
+            
+            #endregion
+
+            #region Page 3
+
+            RightSection1(stream1);
+            RightSection22(stream1);
+            RightSection23(stream1);
+            RightSection22(stream1);
+            RightSection25(stream1);
+            RightSection38(stream1);
+            RightSection39(stream1);
 
             #endregion
 
@@ -70,22 +99,286 @@ namespace Assets.Scripts.MusicalScripts.Songs
             #region Page 1
 
             LeftSection1(stream2);
+            LeftSection2(stream2);
+            LeftSection3(stream2);
+            LeftSection2(stream2);
+            LeftSection3(stream2);
+            LeftSection6(stream2);
+            LeftSection7(stream2);
+            LeftSection6(stream2);
+            LeftSection9(stream2);
+            LeftSection6(stream2);
+            LeftSection7(stream2);
+            LeftSection6(stream2);
+            LeftSection9(stream2);
+            LeftSection14(stream2);
 
-            #region Section 2
+            #endregion
+
+            #region Page 2
+
+            LeftSection15(stream2);
+            LeftSection14(stream2);
+            LeftSection1(stream2);
+            LeftSection2(stream2);
+            LeftSection3(stream2);
+            LeftSection2(stream2);
+            LeftSection3(stream2);
+            LeftSection22(stream2);
+            LeftSection23(stream2);
+            LeftSection22(stream2);
+            LeftSection25(stream2);
+            LeftSection22(stream2);
+            LeftSection23(stream2);
+            LeftSection22(stream2);
+            LeftSection25(stream2);
+            LeftSection14(stream2);
+            LeftSection15(stream2);
+            LeftSection14(stream2);
+            
+            #endregion
+
+            #region Page 3
+
+            LeftSection1(stream2);
+            LeftSection22(stream2);
+            LeftSection23(stream2);
+            LeftSection22(stream2);
+            LeftSection25(stream2);
+            LeftSection38(stream2);
+            LeftSection39(stream2);
+
+            #endregion
+
+            #endregion
+
+            stream2.ParentSong = song;
+            song.ChordStreams.Add(stream2);
+
+            return song;
+        }
+
+        #region Sections
+
+
+        private static void LeftSection39(ChordStream stream2)
+        {
+            #region Section 39
+            new Chord(stream2, N1, DO2);
+            #endregion
+        }
+
+        private static void RightSection39(ChordStream stream1)
+        {
+            #region Section 39
+            new Chord(stream1, N8, MI3, SO3);
+            new Chord(stream1, N8, RE3);
+            new Chord(stream1, N1, MI3);
+            #endregion
+        }
+
+        private static void LeftSection38(ChordStream stream2)
+        {
+            #region Section 38
+            new Chord(stream2, N8, SO2).SetExtended(true);
+            new Chord(stream2, N8, MI2).SetExtended(true);
+            new Chord(stream2, N8, DO2);
+            new Chord(stream2, N4, FA2);
+            new Chord(stream2, N2, DOS1);
+            #endregion
+        }
+
+        private static void RightSection38(ChordStream stream1)
+        {
+            #region Section 38
+            new Chord(stream1, N8, DO4).SetExtended(true);
+            new Chord(stream1, N8, SO3).SetExtended(true);
+            new Chord(stream1, N8, MI3);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, LA3);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, SI3);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, LA3);
+            new Chord(stream1, (N2 / 16.0f) / 3.0f, SOS3);
+            new Chord(stream1, (N2 / 16.0f) / 3.0f, LAS3);
+            new Chord(stream1, (N2 / 16.0f) / 3.0f, SOS3);
+            #endregion
+        }
+
+        private static void LeftSection25(ChordStream stream2)
+        {
+            #region Section 25
             new Chord(stream2, N8, SO2);
+            new Chord(stream2, N16, Silence);
+            new Chord(stream2, N16, SO2);
+            new Chord(stream2, (N4 / 16.0f) / 3.0f, SO2);
+            new Chord(stream2, (N4 / 16.0f) / 3.0f, LA2);
+            new Chord(stream2, (N4 / 16.0f) / 3.0f, SI2);
+            new Chord(stream2, N8, DO3);
+            new Chord(stream2, N8, SO2);
+            new Chord(stream2, N4, DO2).SetStaccato(true);
+            #endregion
+        }
+
+        private static void RightSection25(ChordStream stream1)
+        {
+            #region Section 25
+            new Chord(stream1, N16, SI3);
+            new Chord(stream1, N8, FA4);
+            new Chord(stream1, N16, FA4);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, FA4);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, MI4);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, RE4);
+            new Chord(stream1, N16, DO4);
+            new Chord(stream1, N8, SO3);
+            new Chord(stream1, N16, SO3);
+            new Chord(stream1, N4, DO3).SetStaccato(true);
+            #endregion
+        }
+
+        private static void LeftSection23(ChordStream stream2)
+        {
+            #region Section23
+            new Chord(stream2, N8, RE2);
+            new Chord(stream2, N16, Silence);
+            new Chord(stream2, N16, FA2);
+            new Chord(stream2, N8, SO2);
+            new Chord(stream2, N8, SI2);
+            new Chord(stream2, N8, SO2);
+            new Chord(stream2, N8, SO2);
+            new Chord(stream2, N16, DO3);
+            new Chord(stream2, N16, DO3);
+            new Chord(stream2, N8, SO2);
+            #endregion
+        }
+
+        private static void RightSection23(ChordStream stream1)
+        {
+            #region Section 23
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, SI3);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, LA4);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, LA4);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, LA4);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, SO4);
+            new Chord(stream1, (N4 / 16.0f) / 3.0f, FA4);
+            new Chord(stream1, N16, MI4);
+            new Chord(stream1, N8, DO4);
+            new Chord(stream1, N16, LA3);
+            new Chord(stream1, N4, SO3).SetStaccato(true);
+            #endregion
+        }
+
+        private static void LeftSection22(ChordStream stream2)
+        {
+            #region Section 22
+            new Chord(stream2, N8, DO2);
+            new Chord(stream2, N16, Silence);
+            new Chord(stream2, N16, SO2);
+            new Chord(stream2, N8, SO2);
+            new Chord(stream2, N8, DO3);
+            new Chord(stream2, N8, FA2);
+            new Chord(stream2, N8, FA2);
+            new Chord(stream2, N16, DO3);
+            new Chord(stream2, N16, DO3);
+            new Chord(stream2, N8, FA2);
+            #endregion
+        }
+
+        private static void RightSection22(ChordStream stream2)
+        {
+            #region Section 22
+            new Chord(stream2, N16, MI4);
+            new Chord(stream2, N8, DO4);
+            new Chord(stream2, N16, SO3);
+            new Chord(stream2, N8, Silence);
+            new Chord(stream2, N8, SOS3);
+            new Chord(stream2, N16, LA3);
+            new Chord(stream2, N8, FA4);
+            new Chord(stream2, N16, FA4);
+            new Chord(stream2, N4, LA3).SetStaccato(true);
+            #endregion
+        }
+
+        private static void LeftSection15(ChordStream stream2)
+        {
+            #region Section 15
+            new Chord(stream2, N8, SOS1);
+            new Chord(stream2, N16, Silence);
+            new Chord(stream2, N16, RES2);
+            new Chord(stream2, N8, Silence);
+            new Chord(stream2, N8, SOS2);
+            new Chord(stream2, N8, SO2);
+            new Chord(stream2, N16, Silence);
+            new Chord(stream2, N16, DO2);
+            new Chord(stream2, N8, Silence);
+            new Chord(stream2, N8, SO1);
+            #endregion
+        }
+
+        private static void LeftSection14(ChordStream stream2)
+        {
+            #region Section 14
+            new Chord(stream2, N8, SOS1);
+            new Chord(stream2, N16, Silence);
+            new Chord(stream2, N16, RES2);
+            new Chord(stream2, N8, Silence);
+            new Chord(stream2, N8, SOS2);
+            new Chord(stream2, N8, SO2);
+            new Chord(stream2, N16, Silence);
+            new Chord(stream2, N16, DO2);
+            new Chord(stream2, N8, Silence);
+            new Chord(stream2, N8, SO1);
+            #endregion
+        }
+
+        private static void LeftSection9(ChordStream stream2)
+        {
+            #region Section 9
+            new Chord(stream2, N8, DO2);
+            new Chord(stream2, N8, SOS2);
+            new Chord(stream2, N16, Silence);
+            new Chord(stream2, N16, LAS2);
+            new Chord(stream2, N8, Silence);
+            new Chord(stream2, N8, DO3);
+            new Chord(stream2, N16, Silence);
+            new Chord(stream2, N16, SO2);
+            new Chord(stream2, N8, SO2);
+            new Chord(stream2, N8, DO2);
+            #endregion
+        }
+
+        private static void LeftSection7(ChordStream stream2)
+        {
+            #region Section 7
+            new Chord(stream2, N8, DO2);
             new Chord(stream2, N16, Silence);
             new Chord(stream2, N16, MI2);
             new Chord(stream2, N8, Silence);
+            new Chord(stream2, N16, SO2);
+            new Chord(stream2, N16, DO3);
+            new Chord(stream2, N4, Silence);
+            new Chord(stream2, N8, Silence);
+            new Chord(stream2, N8, SO2);
+            #endregion
+        }
+
+        private static void LeftSection6(ChordStream stream2)
+        {
+            #region Section 6
             new Chord(stream2, N8, DO2);
             new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, FA2);
-            new Chord(stream2, N16, Silence);
             new Chord(stream2, N16, SO2);
+            new Chord(stream2, N8, Silence);
+            new Chord(stream2, N8, DO3);
+            new Chord(stream2, N8, FA2);
             new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, FAS2);
+            new Chord(stream2, N16, DO3);
+            new Chord(stream2, N16, DO3);
+            new Chord(stream2, N16, DO3);
             new Chord(stream2, N8, FA2);
             #endregion
+        }
 
+        private static void LeftSection3(ChordStream stream2)
+        {
             #region Section 3
             new Chord(stream2, (N4 / 16.0f) / 3.0f, MI2);
             new Chord(stream2, (N4 / 16.0f) / 3.0f, DO3);
@@ -101,8 +394,11 @@ namespace Assets.Scripts.MusicalScripts.Songs
             new Chord(stream2, N16, SO2);
             new Chord(stream2, N8, Silence);
             #endregion
+        }
 
-            #region Section 4
+        private static void LeftSection2(ChordStream stream2)
+        {
+            #region Section 2
             new Chord(stream2, N8, SO2);
             new Chord(stream2, N16, Silence);
             new Chord(stream2, N16, MI2);
@@ -116,167 +412,6 @@ namespace Assets.Scripts.MusicalScripts.Songs
             new Chord(stream2, N16, FAS2);
             new Chord(stream2, N8, FA2);
             #endregion
-
-            #region Section 5
-            new Chord(stream2, (N4 / 16.0f) / 3.0f, MI2);
-            new Chord(stream2, (N4 / 16.0f) / 3.0f, DO3);
-            new Chord(stream2, (N4 / 16.0f) / 3.0f, MI3);
-            new Chord(stream2, N8, FA3);
-            new Chord(stream2, N16, RE3);
-            new Chord(stream2, N16, MI3);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, LA2);
-            new Chord(stream2, N16, SI2);
-            new Chord(stream2, N16, SO2);
-            new Chord(stream2, N8, Silence);
-            #endregion
-
-            #region Section 6
-            new Chord(stream2, N8, DO2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, SO2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, DO3);
-            new Chord(stream2, N8, FA2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N8, FA2);
-            #endregion
-
-            #region Section 7
-            new Chord(stream2, N8, DO2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, MI2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N16, SO2);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N4, Silence);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, SO2);
-            #endregion
-
-            #region Section 8
-            new Chord(stream2, N8, DO2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, SO2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, DO3);
-            new Chord(stream2, N8, FA2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N8, FA2);
-            #endregion
-
-            #region Section 9
-            new Chord(stream2, N8, DO2);
-            new Chord(stream2, N8, SOS2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, LAS2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, DO3);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, SOS2);
-            new Chord(stream2, N8, SOS2);
-            new Chord(stream2, N8, DO2);
-            #endregion
-
-            #region Section 10
-            new Chord(stream2, N8, DO2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, SO2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, DO3);
-            new Chord(stream2, N8, FA2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N8, FA2);
-            #endregion
-
-            #region Section 11
-            new Chord(stream2, N8, DO2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, MI2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N16, SO2);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N4, Silence);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, SO2);
-            #endregion
-
-            #region Section 12
-            new Chord(stream2, N8, DO2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, SO2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, DO3);
-            new Chord(stream2, N8, FA2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N16, DO3);
-            new Chord(stream2, N8, FA2);
-            #endregion
-
-            #region Section 13
-            new Chord(stream2, N8, DO2);
-            new Chord(stream2, N8, SOS2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, LAS2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, DO3);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, SOS2);
-            new Chord(stream2, N8, SOS2);
-            new Chord(stream2, N8, DO2);
-            #endregion
-
-            #region Section 14
-            new Chord(stream2, N8, SOS1);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, RES2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, SOS2);
-            new Chord(stream2, N8, SO2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, DO2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, SO1);
-            #endregion
-
-            #endregion
-
-            #region Page 2
-
-            #region Section 15
-            new Chord(stream2, N8, SOS1);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, RES2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N8, SOS2);
-            new Chord(stream2, N8, SO2);
-            new Chord(stream2, N16, Silence);
-            new Chord(stream2, N16, DO2);
-            new Chord(stream2, N8, Silence);
-            new Chord(stream2, N16, SO1);
-            #endregion
-
-            #endregion
-
-            #endregion
-
-            stream2.ParentSong = song;
-            song.ChordStreams.Add(stream2);
-
-            return song;
         }
 
         private static void LeftSection1(ChordStream stream2)
@@ -423,5 +558,7 @@ namespace Assets.Scripts.MusicalScripts.Songs
             new Chord(stream1, N4, SO2).SetStaccato(true);
             #endregion
         }
+
+        #endregion
     }
 }
